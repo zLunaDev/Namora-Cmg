@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Botões e Texto Centralizados</title>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80'); /* Replace 'your-image-url.jpg' with the URL of your 1080p background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+  #displayText{
+    color: #fff;
+  }
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  #buttonContainer {
+    display: none;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  #btnLeft,
+  #btnRight {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+  #btnRight {
+    left: 50px;
+    top: 0px;
+  }
+
+  #textContainer {
+    text-align: center;
+  }
+  
+  #imageContainer {
+    text-align: center;
+  }
+  
+  #addedImage {
+    max-width: 400px;
+    max-height: 400px;
+    animation: rainbowBorder 5s infinite; /* Apply rainbow animation */
+  }
+
+  @keyframes rainbowBorder {
+    0% {
+      border: 8px solid red;
+    }
+    14% {
+      border: 8px solid orange;
+    }
+    28% {
+      border: 8px solid yellow;
+    }
+    42% {
+      border: 8px solid green;
+    }
+    57% {
+      border: 8px solid blue;
+    }
+    71% {
+      border: 8px solid indigo;
+    }
+    85% {
+      border: 8px solid violet;
+    }
+    100% {
+      border: 8px solid red;
+    }
+  }
+
+  #startButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+</audio>
+<div id="container">
+  <div id="imageContainer">
+    <img id="addedImage" src="https://media.discordapp.net/attachments/1132054920380567564/1140641606882578482/f9b53312f951cfb3a294f85fe3046f83.png?width=738&height=701" alt="Imagem Adicionada">
+  </div>
+  <button id="startButton" onclick="iniciar()">Iniciar</button>
+  <div id="textContainer">
+    <p id="displayText">Clique no botão para iniciar...</p>
+  </div>
+  <div id="buttonContainer">
+    <button id="btnLeft" onclick="mostrarPergunta()">Sim</button>
+    <button id="btnRight" onclick="mostrarImagem()">Não</button>
+  </div>
+</div>
+<audio id="audioElement" loop>
+  <source src="audio.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<script>
+  const startButton = document.getElementById('startButton');
+  const buttonContainer = document.getElementById('buttonContainer');
+  const textContainer = document.getElementById('textContainer');
+  const imageContainer = document.getElementById('imageContainer');
+  const addedImage = document.getElementById('addedImage');
+  
+  function iniciar() {
+    const audioElement = document.getElementById('audioElement');
+    audioElement.play();
+    textContainer.innerHTML = "<p id='displayText'>Você quer namorar comigo?</p>";
+    buttonContainer.style.display = 'flex';
+    startButton.style.display = 'none';
+  }
+
+  function mostrarPergunta() {
+    textContainer.innerHTML = "<p id='displayText'>Você quer namorar comigo?</p>";
+    addedImage.src = "https://media.discordapp.net/attachments/800504565241610294/1140358152576041021/image.png";
+  }
+
+  function mostrarImagem() {
+    const btnLeft = document.getElementById('btnLeft');
+    const btnRight = document.getElementById('btnRight');
+    
+    if (event.target === btnLeft) {
+      addedImage.src = "https://media.discordapp.net/attachments/800504565241610294/1140358152576041021/image.png";
+    } else if (event.target === btnRight) {
+      addedImage.src = "https://media.discordapp.net/attachments/800504565241610294/1140355346955763842/addaf.png?width=423&height=423";
+    }
+    
+    imageContainer.style.display = 'block';
+  }
+
+  const btnRight = document.getElementById('btnRight');
+  btnRight.addEventListener('click', () => {
+    const containerWidth = document.getElementById('container').clientWidth - btnRight.clientWidth;
+    const containerHeight = document.getElementById('container').clientHeight - btnRight.clientHeight;
+
+    const randomX = Math.random() * 300;
+    const randomY = Math.random() * 300;
+
+    btnRight.style.left = `${randomX}px`;
+    btnRight.style.top = `${randomY}px`;
+    
+    mostrarImagem();
+  });
+  
+  const btnLeft = document.getElementById('btnLeft');
+  btnLeft.addEventListener('click', () => {
+    mostrarImagem();
+  });
+</script>
+</body>
+</html>
