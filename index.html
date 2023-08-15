@@ -171,9 +171,13 @@
     btnRight.style.left = `${randomX}px`;
     btnRight.style.top = `${randomY}px`;
 
-    mudarcor();
     mostrarImagem();
   });
+
+  const changecolor = document.getElementById('btnRight');
+  btnRight.addEventListener("mouseout", () => {
+    mudarcor();
+  })
   
   const btnLeft = document.getElementById('btnLeft');
   btnLeft.addEventListener('click', () => {
