@@ -152,12 +152,12 @@
   }
 
   const btnRight = document.getElementById('btnRight');
-  btnRight.addEventListener('click', () => {
+  btnRight.addEventListener("mouseover", () => {
     const containerWidth = document.getElementById('container').clientWidth - btnRight.clientWidth;
     const containerHeight = document.getElementById('container').clientHeight - btnRight.clientHeight;
 
-    const randomX = Math.random() * 300;
-    const randomY = Math.random() * 300;
+    const randomX = Math.random() * 200;
+    const randomY = Math.random() * 100;
 
     btnRight.style.left = `${randomX}px`;
     btnRight.style.top = `${randomY}px`;
