@@ -111,7 +111,7 @@
   </div>
   <div id="buttonContainer">
     <button id="btnLeft" onclick="mostrarPergunta()">Sim</button>
-    <button id="btnRight" onclick="mostrarImagem()">Não</button>
+    <button id="btnRight" onmouseover="mostrarImagem()"; onclick="alerta()">Não</button>
   </div>
 </div>
 <audio id="audioElement" loop>
@@ -146,9 +146,18 @@
       addedImage.src = "https://media.discordapp.net/attachments/800504565241610294/1140358152576041021/image.png";
     } else if (event.target === btnRight) {
       addedImage.src = "https://media.discordapp.net/attachments/800504565241610294/1140355346955763842/addaf.png?width=423&height=423";
+      document.getElementById("btnRight").style.backgroundColor = "red";
     }
     
     imageContainer.style.display = 'block';
+  }
+
+   function mudarcor(){
+    document.getElementById("btnRight").style.backgroundColor = "#007bff";
+  }
+  
+  function alerta(){
+    alert("Você conseguiu apertar o botão... MAS MAL SABIA QUE ELE TORNAVA A GENTE UM CASAL BUAHAHAHA");
   }
 
   const btnRight = document.getElementById('btnRight');
@@ -161,7 +170,8 @@
 
     btnRight.style.left = `${randomX}px`;
     btnRight.style.top = `${randomY}px`;
-    
+
+    mudarcor();
     mostrarImagem();
   });
   
