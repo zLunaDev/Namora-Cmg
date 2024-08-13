@@ -104,7 +104,7 @@
 </audio>
 <div id="container">
   <div id="imageContainer">
-    <img id="addedImage" src="https://media.discordapp.net/attachments/1132054920380567564/1140641606882578482/f9b53312f951cfb3a294f85fe3046f83.png?width=738&height=701" alt="Imagem Adicionada">
+    <img id="addedImage" src="Img1.png" alt="Imagem Adicionada">
   </div>
   <button id="startButton" onclick="iniciar()">Iniciar</button>
   <div id="textContainer">
@@ -136,7 +136,7 @@
 
   function mostrarPergunta() {
     textContainer.innerHTML = "<p id='displayText'>Você quer namorar comigo?</p>";
-    addedImage.src = "https://media.discordapp.net/attachments/800504565241610294/1140358152576041021/image.png";
+    addedImage.src = "Img1.png";
   }
 
   function mostrarImagem() {
@@ -144,9 +144,9 @@
     const btnRight = document.getElementById('btnRight');
     
     if (event.target === btnLeft) {
-      addedImage.src = "https://media.discordapp.net/attachments/800504565241610294/1140358152576041021/image.png";
+      addedImage.src = "Img3.png";
     } else if (event.target === btnRight) {
-      addedImage.src = "https://media.discordapp.net/attachments/800504565241610294/1140355346955763842/addaf.png?width=423&height=423";
+      addedImage.src = "Img2.png";
       document.getElementById("btnRight").style.backgroundColor = "red";
     }
     
@@ -158,6 +158,7 @@
   }
   
   function alerta(){
+    addedImage.src = "Img3.png"
     alert("Você conseguiu apertar o botão... MAS MAL SABIA QUE ELE TORNAVA A GENTE UM CASAL BUAHAHAHA");
   }
 
